@@ -17,7 +17,18 @@ function addToCart(item) {
 }
 
 function viewCart() {
-  // write your code here
+  if (cart.length == 0) {
+    return 'Your shopping cart is empty'
+  } else {
+    let newCart = [];
+    for (i = 0; i < cart.length; i++) {
+      let price = Object.keys(cart[i]);
+      for (var price in cart[i]) {
+        newCart.push(`${Object.keys(cart[i])} at $${cart[i][price]}`)
+      }
+    }
+    return console.log("In your cart, you have " + newCart.join(", ") + ".");
+  }
 }
 
 function total() {
